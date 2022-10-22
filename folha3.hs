@@ -6,12 +6,22 @@ mapFilter f p l = map f (filter p l)
 dec2int :: Integral a => [a] -> a
 dec2int l = foldl (\acc x -> acc * 10 +x) 0 l
 
+-------------------------
 --currying
 func a b = (*a) b
 --eta-redução
 fund' a = (* a)
 --eta-redução
 func'' = (*)
+---------------------------
+--3.3
+
+myzipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+myzipWith f [] [] = []
+myzipWith f (x:xs) (y:ys) = f x y : myzipWith xs ys
+
+--3.4
+--isort :: Ord a => [a] -> [a]
 
 --conversão para point free
 dec2int' :: Integral a => [a] -> a
