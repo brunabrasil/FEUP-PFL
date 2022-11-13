@@ -110,6 +110,14 @@ myScanr f acc (x:xs) = (f x $ head t):t
 myScanr' :: (a -> b -> b) -> b -> [a] -> [b]
 myScanr' f acc l = foldr (\x (y:ys) -> (f x y):y:ys) [acc] l
 
+--HO-41
+myScanl :: (b -> a -> b) -> b -> [a] -> [b]
+myScanl _ acc [] = [acc]
+myScanl f acc (x:xs) = acc:(myScanl f (f acc x) xs)
+
+myScanl' :: (b -> a -> b) -> b -> [a] -> [b]
+myScanl' f acc l = reverse (foldl (\(y:ys) x -> (f y x):y:ys ) [acc] l)
+
 --HO-42
 --myFoldl' :: (b -> a -> b) -> b -> [a] -> b
 --myFoldl' f acc l = foldr (\x acc y -> a)

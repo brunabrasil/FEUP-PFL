@@ -6,13 +6,28 @@ type Pair a b = (a,b)
 myArv :: Arv Int
 myArv = (No 3 (No 2 (No 1 Vazia Vazia ) Vazia) (No 4 Vazia Vazia))
 
+--4.1
 sumArv :: (Num a) => Arv a -> a
 sumArv Vazia = 0
 sumArv (No x l r) = x + (sumArv l) + (sumArv r)
 
+--4.2
+listar :: Arv a -> [a]
+listar Vazia = []
+listar (No a b c) = listar c ++ [a] ++ listar b
+
+--4.3
+nivel :: Int -> Arv a -> [a]
+nivel 0 (No a b c) = [a]
+nivel n Vazia = []
+nivel n (No a b c) = nivel (n-1) b ++ nivel (n-1) c
+
+--4.5
 mapArv :: (a -> b) -> Arv a -> Arv b
 mapArv _ Vazia = Vazia
 mapArv f (No x l r) = No (f x) (mapArv f l) (mapArv f r)
+
+--4.6
 
 -- Ex de listas infinitas no discord do prof
 
@@ -31,6 +46,7 @@ calcPi2 2 n = sum $ take n $ zipWith (/) (cycle [4,-4]) ([fromIntegral(product [
 calcPi2 3 n = sum $ take n $ zipWith (/) (cycle [4,-4]) (zipWith (*) [2,4..] (zipWith (*) [3,5..] [4,6..]))
 
 -----------------------
+
 --4.7
 inverteInput :: IO ()
 inverteInput = do
