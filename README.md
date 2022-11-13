@@ -6,3 +6,10 @@ Projects and exercises for the Functional and Logic Programming ([Programação 
 
 ### First project
 Haskell program to symbolically manipulate polynomials.
+
+To run the project:
+```
+ghci
+:l proj.hs
+menu
+```
