@@ -13,3 +13,8 @@ ghci
 :l proj.hs
 menu
 ```
+
+### Second project
+
+Board game (Hadron) for two players in Prolog language. The game allow three modes of use: Human/Human,
+Human/Computer and Computer/Computer and two computer game levels. Developed in SICStus Prolog version 4.7.1.
